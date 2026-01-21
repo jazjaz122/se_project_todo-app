@@ -18,7 +18,7 @@ const closeModal = (modal) => {
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
-  const todoElement = todo.getview();
+  const todoElement = todo.getView();
   return todoElement;
 
   // To be removed:

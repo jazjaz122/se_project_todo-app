@@ -28,4 +28,4 @@ const validationConfig = {
   inactiveButtonClass: "button_disabled",
 };
 
-export { intitalTodos, validationConfig };
+export { initialTodos, validationConfig };
