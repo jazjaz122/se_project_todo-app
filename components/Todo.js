@@ -5,15 +5,15 @@ class Todo {
   }
 
   _setEventListeners() {
-       this._todoCheckboxEl.addEventListener("change", () => {
+    this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
       console.log(this._data.completed);
     });
-//TODO fix delete button implementation
-     this._todoDeleteBtn.addEventListener("click", () => {
-  this._data.remove =this._data.todoDeleteBtn;
-  console.log (this._data.todoDeleteBtn);
-  });
+
+    this._todoDeleteBtn.addEventListener("click", () => {
+      this._todoElement.remove();
+    });
+  }
 
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
@@ -28,14 +28,15 @@ class Todo {
       .querySelector(".todo")
       .cloneNode(true);
 
-    const todoNameEl = this._todoElement.querySelector(".todo__name");
-    const todoDate = this._todoElement.querySelector(".todo__date");
-    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
+    this._todoNameEl = this._todoElement.querySelector(".todo__name");
+    this._todoDate = this._todoElement.querySelector(".todo__date"); // TODO implement date
+    this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
 
-    todoNameEl.textContent = this._data.name;
+    this._todoNameEl.textContent = this._data.name;
 
     this._generateCheckboxEl();
     this._setEventListeners();
+    this._todoCheckboxEl.checked = this._data.completed;
 
     return this._todoElement;
   }
