@@ -33,7 +33,7 @@ class FormValidator {
     }
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     const inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector),
     );
@@ -49,11 +49,11 @@ class FormValidator {
     });
   }
 
-  enableValidation() {
+  _enableValidation() {
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    this._setEventListeners();
+    _setEventListeners();
   }
 }
 
