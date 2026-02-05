@@ -17,7 +17,17 @@ const createLocalDate = (dateInput) => {
 };
 
 const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template");
+  const todo = new Todo(data, "#todo-template", {
+    handleToggleComplete: (isChecked) => {
+      counter.updateCompleted(isChecked);
+    },
+    handleDelete: (wasCompleted) => {
+      counter.updateTotal(false);
+      if (wasCompleted) {
+        counter.updateCompleted(false);
+      }
+    },
+  });
   return todo.getView();
 };
 
@@ -33,7 +43,9 @@ const todoSection = new Section({
   containerSelector: ".todos__list",
 });
 
-todoSection.renderItems();
+import TodoCounter from "../components/TodoCounter.js";
+
+const counter = new TodoCounter(initialTodos, ".counter__text");
 
 const addTodoPopupWithForm = new PopupWithForm(
   "#add-todo-popup",
