@@ -46,6 +46,11 @@ const todoSection = new Section({
   containerSelector: ".todos__list",
 });
 
+const renderTodo = (item) => {
+  const todoElement = generateTodo(item);
+  todoSection.addItem(todoElement);
+};
+
 todoSection.renderItems();
 
 const addTodoPopupWithForm = new PopupWithForm(
