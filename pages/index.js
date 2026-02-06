@@ -8,7 +8,7 @@ import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
+const addTodoForm = addTodoPopupWithForm.getForm();
 
 const createLocalDate = (dateInput) => {
   const date = new Date(dateInput);
